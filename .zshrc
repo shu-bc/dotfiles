@@ -126,3 +126,4 @@ alias k="kubectl"
 alias lzg="lazygit"
 
 source <(kubectl completion zsh)
+export DIRENV_LOG_FORMAT=
