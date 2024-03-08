@@ -1,5 +1,14 @@
+format = '''
+$directory$git_branch$git_status$git_commit$kubernetes$aws$cmd_duration
+$character'''
+
+[directory]
+format = '[$path]($style)[$read_only]($read_only_style) '
+
 [aws]
 symbol = "  "
+style = "#ff9900"
+format = '[$symbol($profile )(\[$duration\] )]($style)'
 
 [buf]
 symbol = " "
@@ -15,9 +24,6 @@ symbol = " "
 
 [dart]
 symbol = " "
-
-[directory]
-read_only = " 󰌾"
 
 [docker_context]
 symbol = " "
@@ -36,9 +42,12 @@ symbol = " "
 symbol = " "
 
 [git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+style = "#f64d27"
 symbol = " "
 
 [golang]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [guix_shell]
@@ -160,6 +169,18 @@ symbol = " "
 [zig]
 symbol = " "
 
-[kubernetes]
-symbol = "⎈ "
+[cmd_duration]
 disabled = false
+
+[kubernetes]
+format ='[$symbol$context( \($namespace\))]($style) '
+symbol = "⎈ "
+style = "#316ce6"
+disabled = false
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:ap-northeast-1:615953452051:cluster/service-staging"
+context_alias = "service-staging"
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:ap-northeast-1:615953452051:cluster/service-production"
+style = "red"
+context_alias = "service-production"
