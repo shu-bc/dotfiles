@@ -109,7 +109,7 @@ setopt share_history
 export ASDF_DIR='/opt/homebrew/opt/asdf/libexec'
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd j)"
 
 export GOPATH="$HOME/go"
 export GO111MODULE=on
@@ -126,4 +126,5 @@ alias k="kubectl"
 alias lzg="lazygit"
 
 source <(kubectl completion zsh)
+complete -o default -F __start_kubectl k
 export DIRENV_LOG_FORMAT=
