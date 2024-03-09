@@ -143,6 +143,22 @@ local plugins = {
 		lazy = false,
 	},
 
+	{
+		"stevearc/aerial.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+			"nvim-telescope/telescope.nvim",
+		},
+
+		config = function()
+			require("telescope").load_extension("aerial")
+			require("aerial").setup({})
+		end,
+		lazy = false,
+	},
 	-- To make a plugin not be loaded
 	-- {
 	--   "NvChad/nvim-colorizer.lua",
