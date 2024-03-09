@@ -157,7 +157,7 @@ local plugins = {
 			require("telescope").load_extension("aerial")
 			require("aerial").setup({})
 		end,
-		lazy = false,
+		event = "LspAttach",
 	},
 	-- To make a plugin not be loaded
 	-- {
