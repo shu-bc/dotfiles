@@ -28,6 +28,7 @@ M.telescope = {
 		-- find
 		["<leader>fs"] = { "<cmd> Telescope lsp_dynamic_workspace_symbols <CR>", "find workspace symbols" },
 		["<leader>fl"] = { "<cmd> Telescope aerial <CR>", "Outline of current buf" },
+		["<leader>wd"] = { "<cmd> Telescope diagnostics <CR>", "workspace diagnostics" },
 	},
 }
 

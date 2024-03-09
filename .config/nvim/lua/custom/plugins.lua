@@ -91,7 +91,7 @@ local plugins = {
 		opts = {
 			auto_preview = false,
 		},
-		lazy = false,
+		event = "LspAttach",
 	},
 
 	{
