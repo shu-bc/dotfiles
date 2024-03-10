@@ -41,7 +41,11 @@ return {
 
 	{
 		"folke/which-key.nvim",
-		-- enabled = false,
+	},
+
+	{
+		"windwp/nvim-autopairs",
+		enable = false,
 	},
 
 	-- Install a plugin
@@ -159,6 +163,15 @@ return {
 			require("aerial").setup({})
 		end,
 		event = "LspAttach",
+	},
+
+	{
+		"echasnovski/mini.surround",
+		verion = "*",
+    config = function ()
+      require('mini.surround').setup()
+    end,
+    lazy = false,
 	},
 
 	{
