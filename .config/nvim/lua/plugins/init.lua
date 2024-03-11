@@ -151,7 +151,11 @@ return {
 
 		config = function()
 			require("telescope").load_extension("aerial")
-			require("aerial").setup({})
+			require("aerial").setup({
+				layout = {
+					max_width = { 60, 0.4 },
+				},
+			})
 		end,
 		event = "LspAttach",
 	},
