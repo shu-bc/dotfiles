@@ -10,8 +10,6 @@ map("n", "<leader>fm", function()
 	require("conform").format()
 end, { desc = "File Format with conform" })
 
-map("i", "jk", "<ESC>", { desc = "Escape insert mode" })
-
 map("n", "<leader>tr", "<cmd>TroubleToggle<CR>", { desc = "TroubleToggle" })
 map("n", "<leader>gg", ":LazyGit <CR>", { desc = "LazyGit" })
 
