@@ -111,15 +111,6 @@ return {
 	},
 
 	{
-		"windwp/nvim-autopairs",
-		opts = {
-			fast_wrap = {
-				map = "<C-p>",
-			},
-		},
-	},
-
-	{
 		"kdheepak/lazygit.nvim",
 		cmd = {
 			"LazyGit",
@@ -145,7 +136,7 @@ return {
 		config = function()
 			require("octo").setup()
 		end,
-		lazy = false,
+    cmd = "Octo",
 	},
 
 	{
