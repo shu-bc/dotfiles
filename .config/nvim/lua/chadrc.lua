@@ -3,7 +3,7 @@ local M = {}
 local highlights = require "highlights"
 
 M.ui = {
-  theme = "tokyonight",
+  theme = "nightfox",
 
   hl_override = highlights.override,
   hl_add = highlights.add,

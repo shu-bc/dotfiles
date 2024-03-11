@@ -30,7 +30,6 @@
   "nvim-web-devicons": { "branch": "master", "commit": "75df79feb02d5e0ec114e447453775d4d291ea03" },
   "octo.nvim": { "branch": "master", "commit": "feae1e5519deebad3c59ee1d57d28aa22822f7c8" },
   "plenary.nvim": { "branch": "master", "commit": "f7adfc4b3f4f91aab6caebf42b3682945fbc35be" },
-  "solarized-osaka.nvim": { "branch": "main", "commit": "40808f8bc17c9014e7a0cd30b9a2693511a14aec" },
   "telescope.nvim": { "branch": "master", "commit": "7472420f8734c710bd7009081cef9b97f08a3821" },
   "trouble.nvim": { "branch": "main", "commit": "f1168feada93c0154ede4d1fe9183bf69bac54ea" },
   "ui": { "branch": "v2.5", "commit": "1a5b04b529069c6d228178371d613117c9689f8a" },
