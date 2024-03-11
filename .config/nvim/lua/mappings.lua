@@ -57,3 +57,6 @@ vim.keymap.del("t", "<ESC>")
 
 -- Aerial
 map("n", "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "Aerial Toggle" })
+
+-- Paste without yanking
+map("v", "p", '"_dP', { desc = "Paste without yanking" })
