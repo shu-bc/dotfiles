@@ -23,6 +23,10 @@ map("n", "<leader>fs", "<cmd> Telescope lsp_dynamic_workspace_symbols <CR>", { d
 map("n", "<leader>fl", "<cmd> Telescope aerial <CR>", { desc = "Outline of current buf" })
 map("n", "<leader>wd", "<cmd> Telescope diagnostics <CR>", { desc = "Workspace diagnostics" })
 
+-- Octo
+map("n", "<leader>gp", "<cmd> Octo search is:pr is:open review-requested:shu-bc <CR>", { desc = "List Github Review Quested Pull Request" })
+
+
 
 -- new terminals
 map("n", "<leader>h", function()
