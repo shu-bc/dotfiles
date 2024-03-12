@@ -53,6 +53,8 @@ end, { desc = "Terminal Toggle Floating term" })
 
 vim.keymap.del("t", "<ESC>")
 
+map("t", "<ESC><ESC>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
+
 -- Aerial
 map("n", "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "Aerial Toggle" })
 
