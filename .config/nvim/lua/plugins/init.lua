@@ -1,15 +1,25 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require("configs.overrides")
 
----@type NvPluginSpec[]
-local plugins = {
+return {
+	{
+		"stevearc/conform.nvim",
+		config = function()
+			require("configs.conform")
+		end,
+	},
 
-	-- Override plugin definition options
+	{
+		"nvim-tree/nvim-tree.lua",
+		opts = {
+			git = { enable = true },
+		},
+	},
 
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("plugins.configs.lspconfig")
-			require("custom.configs.lspconfig")
+			require("nvchad.configs.lspconfig").defaults()
+			require("configs.lspconfig")
 		end, -- Override to setup mason-lspconfig
 	},
 
@@ -31,7 +41,11 @@ local plugins = {
 
 	{
 		"folke/which-key.nvim",
-		-- enabled = false,
+	},
+
+	{
+		"windwp/nvim-autopairs",
+		enable = false,
 	},
 
 	-- Install a plugin
@@ -40,15 +54,6 @@ local plugins = {
 		event = "InsertEnter",
 		config = function()
 			require("better_escape").setup()
-		end,
-	},
-
-	{
-		"stevearc/conform.nvim",
-		--  for users those who want auto-save conform + lazyloading!
-		-- event = "BufWritePre"
-		config = function()
-			require("custom.configs.conform")
 		end,
 	},
 
@@ -106,15 +111,6 @@ local plugins = {
 	},
 
 	{
-		"windwp/nvim-autopairs",
-		opts = {
-			fast_wrap = {
-				map = "<C-p>",
-			},
-		},
-	},
-
-	{
 		"kdheepak/lazygit.nvim",
 		cmd = {
 			"LazyGit",
@@ -140,7 +136,7 @@ local plugins = {
 		config = function()
 			require("octo").setup()
 		end,
-		lazy = false,
+		cmd = "Octo",
 	},
 
 	{
@@ -155,24 +151,34 @@ local plugins = {
 
 		config = function()
 			require("telescope").load_extension("aerial")
-			require("aerial").setup({})
+			require("aerial").setup({
+				layout = {
+					max_width = { 60, 0.4 },
+				},
+			})
 		end,
 		event = "LspAttach",
 	},
 
-	-- To make a plugin not be loaded
-	-- {
-	--   "NvChad/nvim-colorizer.lua",
-	--   enabled = false
-	-- },
+	{
+		"echasnovski/mini.surround",
+		verion = "*",
+		config = function()
+			require("mini.surround").setup({
+				mappings = {
+					add = "Sa", -- Add surrounding in Normal and Visual modes
+					delete = "Sd", -- Delete surrounding
+					find = "Sf", -- Find surrounding (to the right)
+					find_left = "SF", -- Find surrounding (to the left)
+					highlight = "Sh", -- Highlight surrounding
+					replace = "Sr", -- Replace surrounding
+					update_n_lines = "Sn", -- Update `n_lines`
 
-	-- All NvChad plugins are lazy-loaded by default
-	-- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-	-- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
-	-- {
-	--   "mg979/vim-visual-multi",
-	--   lazy = false,
-	-- }
+					suffix_last = "l", -- Suffix to search with "prev" method
+					suffix_next = "n", -- Suffix to search with "next" method
+				},
+			})
+		end,
+		lazy = false,
+	},
 }
-
-return plugins
