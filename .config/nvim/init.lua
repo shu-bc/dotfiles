@@ -54,6 +54,10 @@ autocmd("FileType", {
 autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
+		-- skip formatting for ruby files
+		if vim.bo.filetype == "ruby" then
+			return
+		end
 		require("conform").format({ bufnr = args.buf })
 	end,
 })
