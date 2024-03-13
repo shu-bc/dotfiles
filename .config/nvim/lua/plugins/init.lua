@@ -32,6 +32,9 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = overrides.treesitter,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+		},
 	},
 
 	{
@@ -180,5 +183,12 @@ return {
 			})
 		end,
 		lazy = false,
+	},
+
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		config = function()
+			require("configs.nvim-treesitter-textobjects")
+		end,
 	},
 }
