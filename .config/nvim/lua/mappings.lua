@@ -21,6 +21,11 @@ map("n", "<leader>fs", "<cmd> Telescope lsp_dynamic_workspace_symbols <CR>", { d
 map("n", "<leader>fl", "<cmd> Telescope aerial <CR>", { desc = "Outline of current buf" })
 map("n", "<leader>wd", "<cmd> Telescope diagnostics <CR>", { desc = "Workspace diagnostics" })
 
+map("v", "<leader>fw", "<cmd> Telescope grep_string <CR>", { desc = "Find word under cursor" })
+map("v", "<leader>fs", function()
+	require("telescope.builtin").lsp_workspace_symbols({ query = vim.fn.expand("<cword>") })
+end, { desc = "Find symbol under cursor" })
+
 -- Octo
 map(
 	"n",
