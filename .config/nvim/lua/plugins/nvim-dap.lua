@@ -1,6 +1,23 @@
 return {
 	{
 		"mfussenegger/nvim-dap",
+		config = function()
+			local dap = require("dap")
+			local map = vim.keymap.set
+
+			map("n", "<leader>dc", function()
+				dap.continue()
+			end, { desc = "Dap Continue" })
+
+			map("n", "<leader>ds", function()
+				dap.step_over()
+			end, { desc = "Dap Step Over" })
+
+			map("n", "<leader>db", function()
+				dap.toggle_breakpoint()
+			end, { desc = "Dap Toggle Breakpoint" })
+			-- code
+		end,
 	},
 
 	{
@@ -23,19 +40,6 @@ return {
 			dap.listeners.before.event_exited.dapui_config = function()
 				dapui.close()
 			end
-
-			local map = vim.keymap.set
-			map("n", "<leader>dc", function()
-				dap.continue()
-			end, { desc = "Dap Continue" })
-
-			map("n", "<leader>ds", function()
-				dap.step_over()
-			end, { desc = "Dap Step Over" })
-
-			map("n", "<leader>db", function()
-				dap.toggle_breakpoint()
-			end, { desc = "Dap Toggle Breakpoint" })
 		end,
 	},
 
