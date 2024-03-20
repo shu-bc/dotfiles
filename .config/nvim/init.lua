@@ -63,6 +63,6 @@ autocmd("BufWritePre", {
 })
 
 -- vim command autocomplete
-local opt = vim.opt
-opt.wildmode = { "list", "longest" }
-opt.wildoptions = "fuzzy"
+-- local opt = vim.opt
+-- opt.wildmode = { "list", "full" }
+-- opt.wildoptions = { "fuzzy", "pum" }
