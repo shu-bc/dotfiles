@@ -15,7 +15,7 @@ return {
 
 			map("n", "<leader>di", function()
 				dap.step_into()
-			end, { desc = "Dap Step Over" })
+			end, { desc = "Dap Step Into" })
 
 			map("n", "<leader>do", function()
 				dap.step_out()
@@ -99,6 +99,11 @@ return {
 					build_flags = "",
 				},
 			})
+
+			local map = vim.keymap.set
+			map("n", "<leader>dl", function()
+				require("dap-go").debug_test()
+			end, { desc = "Dap Nearest Test" })
 		end,
 		ft = "go",
 	},
