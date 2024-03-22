@@ -30,14 +30,6 @@ return {
 	},
 
 	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = overrides.treesitter,
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
-		},
-	},
-
-	{
 		"nvim-tree/nvim-tree.lua",
 		opts = overrides.nvimtree,
 	},
