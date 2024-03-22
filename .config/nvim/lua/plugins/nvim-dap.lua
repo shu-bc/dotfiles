@@ -13,6 +13,14 @@ return {
 				dap.step_over()
 			end, { desc = "Dap Step Over" })
 
+			map("n", "<leader>di", function()
+				dap.step_into()
+			end, { desc = "Dap Step Over" })
+
+			map("n", "<leader>do", function()
+				dap.step_out()
+			end, { desc = "Dap Step Over" })
+
 			map("n", "<leader>db", function()
 				dap.toggle_breakpoint()
 			end, { desc = "Dap Toggle Breakpoint" })
