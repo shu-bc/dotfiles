@@ -11,6 +11,8 @@ return {
 				gofmt = "gofmt",
 				-- GoDebug does not work well
 				dap_debug = false,
+				-- when true, got error saying not support codelens
+				lsp_codelens = false,
 			})
 		end,
 		event = { "CmdlineEnter" },
