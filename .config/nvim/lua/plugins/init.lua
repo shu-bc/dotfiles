@@ -43,6 +43,16 @@ return {
 		enable = false,
 	},
 
+	{
+		"hrsh7th/nvim-cmp",
+		opts = {
+			completion = {
+				completeopt = "menu,menuone,noseleqqct",
+			},
+			preselect = "cmp.PreselectMode.None",
+		},
+	},
+
 	-- Install a plugin
 	{
 		"max397574/better-escape.nvim",
