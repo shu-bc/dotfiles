@@ -38,7 +38,7 @@ vim.schedule(function()
 	require("mappings")
 end)
 
--- customized settings
+-- style for go files
 local autocmd = vim.api.nvim_create_autocmd
 autocmd("FileType", {
 	pattern = "go",
@@ -51,6 +51,7 @@ autocmd("FileType", {
 	end,
 })
 
+-- stop autoformatting for ruby files
 autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
@@ -62,7 +63,8 @@ autocmd("BufWritePre", {
 	end,
 })
 
--- vim command autocomplete
--- local opt = vim.opt
--- opt.wildmode = { "list", "full" }
--- opt.wildoptions = { "fuzzy", "pum" }
+-- treesitter settings
+local opt = vim.opt
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldenable = false
