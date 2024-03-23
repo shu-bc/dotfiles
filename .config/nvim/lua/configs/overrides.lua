@@ -18,6 +18,7 @@ M.treesitter = {
 		"ruby",
 		"vimdoc",
 		"toml",
+		"json",
 	},
 	indent = {
 		enable = true,
@@ -57,6 +58,9 @@ M.mason = {
 
 		-- terraform
 		"terraform-ls",
+
+		-- json
+		"json-lsp",
 	},
 }
 
