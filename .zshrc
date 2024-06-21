@@ -124,6 +124,8 @@ export EDITOR='nvim'
 alias n="nvim"
 alias k="kubectl"
 alias lzg="lazygit"
+alias lzd="lazydocker"
+alias rs="docker compose exec musubu-dev-arm bundle exec rspec"
 
 source <(kubectl completion zsh)
 complete -o default -F __start_kubectl k

@@ -14,6 +14,7 @@ local servers = {
 	"solargraph",
 	"terraformls",
 	"pylsp",
+	"bufls",
 }
 
 for _, lsp in ipairs(servers) do
