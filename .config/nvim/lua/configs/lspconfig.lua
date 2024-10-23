@@ -8,15 +8,14 @@ local lspconfig = require("lspconfig")
 local servers = {
 	"html",
 	"cssls",
-	"tsserver",
-	"clangd",
+	"ts_ls",
 	"gopls",
-	"solargraph",
 	"terraformls",
 	"pylsp",
 	"bufls",
 	"prismals",
 }
+-- "clangd",
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({

@@ -1,6 +1,12 @@
 local options = {
 	lsp_fallback = true,
 
+	formatters = {
+		goimports = {
+			prepend_args = { "-local", "github.com/knowledge-work" },
+		},
+	},
+
 	formatters_by_ft = {
 		lua = { "stylua" },
 
@@ -10,13 +16,14 @@ local options = {
 
 		sh = { "shfmt" },
 
-		go = { "gofmt", "goimports" },
+		-- go = { "gofmt", "goimports" },
+		go = { "goimports", "gofmt" },
 	},
 
 	-- format_on_save = {
 	-- 	-- These options will be passed to conform.format()
-	-- 	timeout_ms = 500,
-	-- 	lsp_fallback = true,
+	-- 	timeout_ms = 2000,
+	-- 	lsp_format = "fallback",
 	-- },
 }
 
@@ -26,7 +33,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		if vim.bo.filetype ~= "ruby" then
 			return
 		end
-		require("conform").format({ bufnr = args.buf })
+		require("conform").format({
+			bufnr = args.buf,
+			timeout_ms = 2000,
+			async = true,
+		})
 	end,
 })
 

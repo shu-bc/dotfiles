@@ -56,8 +56,6 @@ map({ "n", "t" }, "<A-i>", function()
 	require("nvchad.term").toggle({ pos = "float", id = "floatTerm" })
 end, { desc = "Terminal Toggle Floating term" })
 
-vim.keymap.del("t", "<ESC>")
-
 map("t", "<ESC><ESC>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
 
 -- Aerial

@@ -1,6 +1,8 @@
 format = '''
-$directory$git_branch$git_status$git_commit$kubernetes$aws$cmd_duration
+$directory$git_branch$git_status$git_commit$kubernetes$gcloud$cmd_duration
 $character'''
+
+command_timeout=10000
 
 [directory]
 format = '[$path]($style)[$read_only]($read_only_style) '
@@ -184,3 +186,9 @@ context_alias = "service-staging"
 context_pattern = "arn:aws:eks:ap-northeast-1:615953452051:cluster/service-production"
 style = "red"
 context_alias = "service-production"
+
+# ~/.config/starship.toml
+
+[gcloud]
+format = '[$symbol$active]($style) '
+style = 'bold yellow'
