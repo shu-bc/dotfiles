@@ -27,6 +27,14 @@ map("v", "<leader>fs", function()
   require("telescope.builtin").lsp_workspace_symbols { query = vim.fn.expand "<cword>" }
 end, { desc = "Find symbol under cursor" })
 
+map("n", "gi", function()
+  require("telescope.builtin").lsp_implementations { show_line = false }
+end, { desc = "Go to implementation" })
+
+map("n", "<leader>gr", function()
+  require("telescope.builtin").lsp_references { show_line = false }
+end, { desc = "Go to references" })
+
 -- Octo
 map(
   "n",
