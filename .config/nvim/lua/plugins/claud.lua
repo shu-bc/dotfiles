@@ -14,6 +14,12 @@ return {
           hide_signcolumn = true, -- Hide the sign column in the terminal window
         },
       }
+      vim.keymap.set("n", "<leader>cC", function()
+        vim.cmd "ClaudeCode"
+        vim.schedule(function()
+          vim.bo.buflisted = false
+        end)
+      end, { desc = "Claude Code: Continue" })
     end,
     lazy = false,
   },
