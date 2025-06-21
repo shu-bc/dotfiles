@@ -60,7 +60,7 @@ end, { desc = "Terminal Toggle Floating term" })
 map("t", "<ESC><ESC>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
 
 -- Aerial
-map("n", "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "Aerial Toggle" })
+map("n", "<leader>at", "<cmd>AerialToggle!<CR>", { desc = "Aerial Toggle" })
 
 map("n", "<leader>o", "i<CR><ESC>", { desc = "Insert newline below" })
 
@@ -77,3 +77,20 @@ map("n", "<leader>tf", "<cmd>GoTestFunc<CR>", { desc = "GoTestFunc" })
 
 -- leader g i -> GoImport
 map("n", "<leader>gi", "<cmd>GoImports<CR>", { desc = "GoImports" })
+
+-- Yank relative path
+map("n", "<leader>yr", function()
+  local relative_path = vim.fn.expand "%:."
+  vim.fn.setreg("+", relative_path)
+  print("Yanked: " .. relative_path)
+end, { desc = "Yank relative path" })
+
+-- Yank relative path with line numbers in visual mode
+map("v", "<leader>yr", function()
+  local relative_path = vim.fn.expand "%:."
+  local start_line = vim.fn.line "'<"
+  local end_line = vim.fn.line "'>"
+  local path_with_lines = relative_path .. ":" .. start_line .. "-" .. end_line
+  vim.fn.setreg("+", path_with_lines)
+  print("Yanked: " .. path_with_lines)
+end, { desc = "Yank relative path with line numbers" })
