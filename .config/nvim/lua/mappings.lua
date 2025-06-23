@@ -71,11 +71,6 @@ end, { desc = "Terminal Toggle Floating term" })
 
 map("t", "<ESC><ESC>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
 
--- Aerial
-map("n", "<leader>at", "<cmd>AerialToggle!<CR>", { desc = "Aerial Toggle" })
-
-map("n", "<leader>o", "i<CR><ESC>", { desc = "Insert newline below" })
-
 -- Luasnip
 local ls = require "luasnip"
 vim.keymap.set({ "i", "s" }, "<C-e>", function()
