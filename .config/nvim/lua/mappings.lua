@@ -21,19 +21,23 @@ map("v", ">", ">gv", { desc = "Indent" })
 map("n", "<leader>fs", "<cmd> Telescope lsp_dynamic_workspace_symbols <CR>", { desc = "Find workspace symbols" })
 map("n", "<leader>fl", "<cmd> Telescope aerial <CR>", { desc = "Outline of current buf" })
 map("n", "<leader>wd", "<cmd> Telescope diagnostics <CR>", { desc = "Workspace diagnostics" })
-
 map("v", "<leader>fw", "<cmd> Telescope grep_string <CR>", { desc = "Find word under cursor" })
+map("n", "<leader>fc", function()
+  require("telescope.builtin").command_history()
+end, { desc = "Telescope command history" })
+
+-- Telescope LSP functions
 map("v", "<leader>fs", function()
   require("telescope.builtin").lsp_workspace_symbols { query = vim.fn.expand "<cword>" }
 end, { desc = "Find symbol under cursor" })
 
 map("n", "gi", function()
   require("telescope.builtin").lsp_implementations { show_line = false }
-end, { desc = "Go to implementation" })
+end, { desc = "Telescope lsp implementations" })
 
 map("n", "<leader>gr", function()
   require("telescope.builtin").lsp_references { show_line = false }
-end, { desc = "Go to references" })
+end, { desc = "Telescope lsp reference" })
 
 -- Octo
 map(
@@ -83,7 +87,7 @@ end, { silent = true })
 -- GoTest
 map("n", "<leader>tf", "<cmd>GoTestFunc<CR>", { desc = "GoTestFunc" })
 
--- leader g i -> GoImport
+-- GoImport
 map("n", "<leader>gi", "<cmd>GoImports<CR>", { desc = "GoImports" })
 
 -- Yank relative path
@@ -93,12 +97,20 @@ map("n", "<leader>yr", function()
   print("Yanked: " .. relative_path)
 end, { desc = "Yank relative path" })
 
--- Yank relative path with line numbers in visual mode
-map("v", "<leader>yr", function()
-  local relative_path = vim.fn.expand "%:."
-  local start_line = vim.fn.line "'<"
-  local end_line = vim.fn.line "'>"
-  local path_with_lines = relative_path .. ":" .. start_line .. "-" .. end_line
-  vim.fn.setreg("+", path_with_lines)
-  print("Yanked: " .. path_with_lines)
+vim.keymap.set("x", "<leader>yr", function()
+  -- 選択開始とカーソル位置
+  local s_line = vim.fn.line "v"
+  local e_line = vim.fn.line "."
+
+  -- 逆順で選ばれている可能性に備えてソート
+  if s_line > e_line then
+    s_line, e_line = e_line, s_line
+  end
+
+  -- 相対パス + 行範囲を組み立ててクリップボードへ
+  local path = vim.fn.expand "%:."
+  local text = string.format("%s:%d-%d", path, s_line, e_line)
+
+  vim.fn.setreg("+", text)
+  print("Yanked: " .. text)
 end, { desc = "Yank relative path with line numbers" })
