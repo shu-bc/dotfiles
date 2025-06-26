@@ -98,19 +98,19 @@ return {
           hide_signcolumn = true, -- Hide the sign column in the terminal window
         },
       }
+
+      vim.keymap.set("n", "<leader>cC", function()
+        vim.cmd "ClaudeCode"
+        vim.schedule(function()
+          update_claude_buffer()
+          local buf = get_claude_buffer()
+          if buf then
+            vim.bo[buf].buflisted = false
+          end
+        end)
+      end, { desc = "Claude Code: Continue" })
     end,
     keys = {
-      {
-        "<leader>cC",
-        function()
-          vim.cmd "ClaudeCode"
-          vim.schedule(function()
-            vim.bo.buflisted = false
-            update_claude_buffer()
-          end)
-        end,
-        desc = "Claude Code: Continue",
-      },
       {
         "<leader>ca",
         send_file_to_claude,
