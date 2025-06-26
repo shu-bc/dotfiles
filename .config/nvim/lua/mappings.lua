@@ -83,14 +83,42 @@ map("n", "<leader>tf", "<cmd>GoTestFunc<CR>", { desc = "GoTestFunc" })
 -- GoImport
 map("n", "<leader>gi", "<cmd>GoImports<CR>", { desc = "GoImports" })
 
--- Yank relative path
-map("n", "<leader>yr", function()
-  local relative_path = vim.fn.expand "%:."
-  vim.fn.setreg("+", relative_path)
-  print("Yanked: " .. relative_path)
-end, { desc = "Yank relative path" })
+-- For Claude Code --
 
-vim.keymap.set("x", "<leader>yr", function()
+-- Write relative path to Claude window
+map("n", "<leader>ca", function()
+  local relative_path = vim.fn.expand "%:."
+
+  -- Claude Codeウィンドウを探す（ターミナルバッファを検索）
+  local claude_buf = nil
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    local buf_type = vim.bo[buf].buftype
+    if buf_type == "terminal" then
+      claude_buf = buf
+      break
+    end
+  end
+
+  -- 常にクリップボードにyank
+  vim.fn.setreg("+", relative_path)
+
+  if claude_buf then
+    -- ターミナルバッファに送信
+    local chan = vim.api.nvim_buf_get_var(claude_buf, "terminal_job_id")
+    vim.api.nvim_chan_send(chan, "@" .. relative_path)
+    print("Written to Claude and yanked: " .. relative_path)
+
+    -- Claude Codeウィンドウをアクティブにする
+    local claude_win = vim.fn.bufwinid(claude_buf)
+    if claude_win ~= -1 then
+      vim.api.nvim_set_current_win(claude_win)
+    end
+  else
+    print("Yanked: " .. relative_path)
+  end
+end, { desc = "Add context to Claude Code" })
+
+vim.keymap.set("x", "<leader>ca", function()
   -- 選択開始とカーソル位置
   local s_line = vim.fn.line "v"
   local e_line = vim.fn.line "."
@@ -100,10 +128,40 @@ vim.keymap.set("x", "<leader>yr", function()
     s_line, e_line = e_line, s_line
   end
 
-  -- 相対パス + 行範囲を組み立ててクリップボードへ
+  -- 相対パス + 行範囲を組み立て
   local path = vim.fn.expand "%:."
   local text = string.format("%s:%d-%d", path, s_line, e_line)
 
+  -- Claude Codeウィンドウを探す（ターミナルバッファを検索）
+  local claude_buf = nil
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    local buf_type = vim.bo[buf].buftype
+    if buf_type == "terminal" then
+      claude_buf = buf
+      break
+    end
+  end
+
+  -- 常にクリップボードにyank
   vim.fn.setreg("+", text)
-  print("Yanked: " .. text)
-end, { desc = "Yank relative path with line numbers" })
+
+  if claude_buf then
+    -- ターミナルバッファに送信
+    local chan = vim.api.nvim_buf_get_var(claude_buf, "terminal_job_id")
+    vim.api.nvim_chan_send(chan, "@" .. text)
+    print("Written to Claude and yanked: " .. text)
+
+    -- Visual modeを抜けてからClaude Codeウィンドウをアクティブにする
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+    vim.schedule(function()
+      local claude_win = vim.fn.bufwinid(claude_buf)
+      if claude_win ~= -1 then
+        vim.api.nvim_set_current_win(claude_win)
+      end
+    end)
+  else
+    print("Yanked: " .. text)
+    -- Visual modeを抜ける
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+  end
+end, { desc = "Add context to Claude Code" })
