@@ -16,8 +16,8 @@ local options = {
 
     sh = { "shfmt" },
 
-    -- go = { "gofmt", "goimports" },
     go = { "goimports", "gofmt" },
+    proto = { "buf" },
   },
 
   format_on_save = {
