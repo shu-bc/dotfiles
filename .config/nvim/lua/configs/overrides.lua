@@ -19,6 +19,8 @@ M.treesitter = {
     "vimdoc",
     "toml",
     "json",
+    "json5",
+    "sql",
   },
   indent = {
     enable = true,
