@@ -54,3 +54,8 @@ lspconfig.pylsp.setup {
     },
   },
 }
+
+-- gopls daemon
+lspconfig.gopls.setup {
+  cmd = { "gopls", "--remote=auto", "--logfile=auto", "-debug=:0", "-remote.debug=:0", "-rpc.trace" },
+}
