@@ -6,7 +6,7 @@ return {
       formatters = {
         file = {
           filename_first = true,
-          truncate = 60,
+          truncate = 80,
         },
       },
       layouts = {
@@ -20,8 +20,9 @@ return {
       win = {
         preview = {
           wo = {
-            number = false,
+            number = true,
             relativenumber = false,
+            wrap = true,
           },
         },
       },
