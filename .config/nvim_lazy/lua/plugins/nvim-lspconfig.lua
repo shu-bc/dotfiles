@@ -7,7 +7,10 @@ return {
           gopls = {
             hints = {
               assignVariableTypes = false,
+              parameterNames = false,
             },
+            gofumpt = false,
+            staticcheck = false,
           },
         },
       },
