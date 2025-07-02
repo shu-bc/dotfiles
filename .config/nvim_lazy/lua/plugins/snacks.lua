@@ -17,6 +17,14 @@ return {
           },
         },
       },
+      win = {
+        preview = {
+          wo = {
+            number = false,
+            relativenumber = false,
+          },
+        },
+      },
     },
   },
 }
