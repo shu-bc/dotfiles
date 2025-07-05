@@ -1,3 +1,5 @@
+-- Snacks.picker()
+
 return {
   "folke/snacks.nvim",
   lazy = false, -- Or true if you want it to be lazy-loaded
@@ -26,6 +28,14 @@ return {
           },
         },
       },
+      -- config for explorer
+      -- sources = {
+      --   explorer = {
+      --     layout = {
+      --       layout = {},
+      --     },
+      --   },
+      -- },
     },
   },
 }
