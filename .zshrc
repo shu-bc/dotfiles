@@ -15,9 +15,7 @@ if [ -f '/Users/shuyou//google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/s
 alias lg='lazygit'
 alias vim='nvim'
 alias n='nvim'
-alias nl='NVIM_APPNAME=nvim_lazy nvim'
 alias c='claude'
-alias ll='ls --color=auto'
 alias kw='cd ~/workspace/kw/knowledgework/'
 export EDITOR='nvim'
 
