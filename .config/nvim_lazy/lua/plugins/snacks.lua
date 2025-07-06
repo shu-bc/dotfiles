@@ -60,6 +60,11 @@ return {
             },
           },
         },
+        files = {
+          matcher = {
+            frecency = true,
+          },
+        },
       },
     },
   },
