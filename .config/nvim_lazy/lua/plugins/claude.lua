@@ -96,9 +96,19 @@ return {
         hide_numbers = true, -- Hide line numbers in the terminal window
         hide_signcolumn = true, -- Hide the sign column in the terminal window
       },
+      keymaps = {
+        toggle = {
+          variants = false,
+        },
+      },
     })
   end,
   keys = {
+    {
+      "<leader>Cc",
+      "<cmd>ClaudeCode<CR>",
+      "Toggle Claude Code",
+    },
     {
       "<leader>Ca",
       send_file_to_claude,

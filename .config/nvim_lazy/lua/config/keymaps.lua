@@ -8,3 +8,5 @@ vim.keymap.set("n", "<leader>st", function()
 end, { desc = "Snacks: Treesitter Picker" })
 
 vim.keymap.set("n", "<leader>gt", "<cmd>Gitsigns diffthis<CR>")
+
+vim.keymap.set("t", "<C-x>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
