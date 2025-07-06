@@ -4,6 +4,7 @@ return {
   lazy = false, -- Or true if you want it to be lazy-loaded
   opts = {
     picker = {
+      -- general picker settings
       formatters = {
         file = {
           filename_first = true,
@@ -27,6 +28,7 @@ return {
           },
         },
       },
+      -- config picker sources
       sources = {
         -- config notifcations picker
         notifications = {
@@ -60,6 +62,7 @@ return {
             },
           },
         },
+        -- config files picker
         files = {
           matcher = {
             frecency = true,
