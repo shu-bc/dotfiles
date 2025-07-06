@@ -6,3 +6,5 @@ vim.keymap.set("n", "<leader>st", function()
     focus = "list",
   })
 end, { desc = "Snacks: Treesitter Picker" })
+
+vim.keymap.set("n", "<leader>gt", "<cmd>Gitsigns diffthis<CR>")
