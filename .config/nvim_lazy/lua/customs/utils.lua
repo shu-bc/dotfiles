@@ -24,6 +24,4 @@ utils.get_current_directory_relative_path = function()
   return current_file and current_file:match("(.*/)")
 end
 
-print(utils.get_current_directory_relative_path())
-
 return utils
