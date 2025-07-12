@@ -1,4 +1,3 @@
--- Snacks.picker()
 return {
   "folke/snacks.nvim",
   lazy = false, -- Or true if you want it to be lazy-loaded
@@ -66,6 +65,31 @@ return {
         files = {
           matcher = {
             frecency = true,
+          },
+        },
+        explorer = {
+          layout = {
+            layout = {
+              width = 50,
+            },
+          },
+          actions = {
+            ---@param picker snacks.Picker
+            test = function(picker, item)
+              local win = picker.list.win.win
+              if not win then
+                return
+              end
+              local w = vim.api.nvim_win_get_width(win)
+              vim.api.nvim_win_set_width(win, math.floor(w * 1.1))
+            end,
+          },
+          win = {
+            list = {
+              keys = {
+                [">>"] = { "test", mode = { "n", "i" } },
+              },
+            },
           },
         },
       },
