@@ -2,3 +2,4 @@
 require("config.lazy")
 
 require("customs.gotest")
+require("customs.go-generate")
