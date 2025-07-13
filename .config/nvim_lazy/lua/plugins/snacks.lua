@@ -73,23 +73,9 @@ return {
               width = 50,
             },
           },
-          actions = {
-            ---@param picker snacks.Picker
-            broaden_list = function(picker, item)
-              local win = picker.list.win.win
-              if not win then
-                return
-              end
-              local w = vim.api.nvim_win_get_width(win)
-              vim.api.nvim_win_set_width(win, math.floor(w + 10))
-            end,
-          },
+          actions = {},
           win = {
-            list = {
-              keys = {
-                [">>"] = { "broaden_list", mode = { "n", "i" } },
-              },
-            },
+            list = {},
           },
         },
       },
