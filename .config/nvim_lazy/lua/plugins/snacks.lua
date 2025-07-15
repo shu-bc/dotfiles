@@ -1,3 +1,4 @@
+-- Snacks.explorer
 return {
   "folke/snacks.nvim",
   lazy = false, -- Or true if you want it to be lazy-loaded
