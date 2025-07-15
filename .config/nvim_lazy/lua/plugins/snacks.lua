@@ -73,9 +73,24 @@ return {
               width = 50,
             },
           },
-          actions = {},
+          actions = {
+            yank_relative_path = function(_, item)
+              local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+              if not git_root or git_root == "" then
+                vim.notify("Not inside a Git repository", vim.log.levels.ERROR)
+              end
+
+              local relative_path = item.text:gsub(git_root .. "/", "")
+              vim.fn.setreg("+", relative_path)
+              vim.notify("Yanked: " .. relative_path)
+            end,
+          },
           win = {
-            list = {},
+            list = {
+              keys = {
+                ["y"] = { "yank_relative_path" },
+              },
+            },
           },
         },
       },
