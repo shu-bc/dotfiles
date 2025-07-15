@@ -3,7 +3,7 @@ return {
   keys = {
     { "<S-h>", false },
     { "<S-l>", false },
-    { "<tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
-    { "<S-tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+    { "<S-tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
+    { "<tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
   },
 }
