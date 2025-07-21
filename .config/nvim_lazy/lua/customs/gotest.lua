@@ -9,6 +9,9 @@ local function run_package_test()
 
   local cmd = string.format("cd %s && go test -v -json", vim.fn.shellescape(package_dir))
 
+  local package_name = vim.fn.fnamemodify(package_dir, ":t")
+  vim.notify("Running package tests: " .. package_name, vim.log.levels.INFO)
+
   local json_lines = {}
 
   vim.fn.jobstart(cmd, {
@@ -135,6 +138,8 @@ local function run_test_function()
     vim.fn.shellescape(package_dir),
     vim.fn.shellescape("^" .. test_name .. "$")
   )
+
+  vim.notify("Running test: " .. test_name, vim.log.levels.INFO)
 
   local json_lines = {}
 
