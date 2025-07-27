@@ -6,12 +6,19 @@ local function go_generate()
     return
   end
 
+  local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+  if vim.v.shell_error ~= 0 then
+    vim.notify("Not in a git repository", vim.log.levels.ERROR)
+    return
+  end
+
   vim.notify("Running go generate on " .. file_path, vim.log.levels.INFO)
 
   local cmd = { "go", "generate", file_path }
   local output = {}
 
   vim.fn.jobstart(cmd, {
+    cwd = git_root,
     stdout_buffered = true,
     stderr_buffered = true,
     on_stdout = function(_, data)
