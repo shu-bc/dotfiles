@@ -5,12 +5,13 @@ return {
       gopls = {
         settings = {
           gopls = {
-            hints = {
-              assignVariableTypes = false,
-              parameterNames = false,
-            },
+            hints = false,
             gofumpt = false,
             staticcheck = false,
+            usePlaceholders = false,
+            codelenses = {
+              test = true,
+            },
           },
         },
       },
