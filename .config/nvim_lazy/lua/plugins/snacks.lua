@@ -3,6 +3,9 @@ return {
   "folke/snacks.nvim",
   lazy = false, -- Or true if you want it to be lazy-loaded
   opts = {
+    words = {
+      enabled = false,
+    },
     picker = {
       -- general picker settings
       formatters = {

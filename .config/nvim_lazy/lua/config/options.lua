@@ -7,3 +7,4 @@ vim.g.db_ui_winwidth = 50
 
 vim.opt.wrap = true
 vim.opt.linebreak = false
+vim.opt.cursorline = false
