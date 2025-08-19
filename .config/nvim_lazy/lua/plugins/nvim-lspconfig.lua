@@ -16,5 +16,10 @@ return {
         },
       },
     },
+    -- setup = {
+    --   gopls = function(_, opts)
+    --     opts.cmd = { "gopls", "--remote=auto", "--logfile=auto", "-debug=:0", "-remote.debug=:0", "-rpc.trace" }
+    --   end,
+    -- },
   },
 }
