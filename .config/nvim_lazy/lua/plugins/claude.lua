@@ -4,8 +4,15 @@ local function update_claude_buffer()
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
     local buf_type = vim.bo[buf].buftype
     if buf_type == "terminal" then
-      claude_buf = buf
-      break
+      -- バッファ名またはコマンドでClaude Codeを判定
+      local buf_name = vim.api.nvim_buf_get_name(buf)
+      local term_name = vim.fn.fnamemodify(buf_name, ":t")
+
+      -- "claude"が含まれるターミナルのみを対象にする
+      if string.find(term_name:lower(), "claude") then
+        claude_buf = buf
+        break
+      end
     end
   end
 end
