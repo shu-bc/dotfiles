@@ -5,7 +5,7 @@ eval "$(mise activate zsh)"
 eval "$(direnv hook zsh)"
 export PATH=$PATH:~/go/bin
 export PATH=/usr/local/go/bin:$PATH
-export PATH="~/.local/bin:$PATH"
+export PATH=~/.local/bin:$PATH
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/shuyou/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/shuyou/google-cloud-sdk/path.zsh.inc'; fi
