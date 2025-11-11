@@ -19,8 +19,8 @@ return {
       -- json
       "json-lsp",
 
-      -- protobuf
-      "buf",
+      -- -- protobuf
+      -- "buf",
     },
   },
 }

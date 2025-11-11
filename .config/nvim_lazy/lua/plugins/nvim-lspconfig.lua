@@ -1,5 +1,8 @@
 return {
   "neovim/nvim-lspconfig",
+  init = function()
+    pcall(require, "config.diag-filter")
+  end,
   opts = {
     servers = {
       gopls = {
@@ -14,6 +17,9 @@ return {
             },
           },
         },
+      },
+      buf_ls = {
+        mason = false,
       },
     },
     -- setup = {
