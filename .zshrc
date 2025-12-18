@@ -30,3 +30,21 @@ wt () {
   git worktree add -b "$n" "../$n" master
 }
 
+# for selecting and running tasks 
+function selt() {
+  local repo_root task_command selected
+  repo_root="$(git rev-parse --show-toplevel 2>/dev/null)" || return 1
+
+  if [[ ${SELT_USE_RUNT:-false} == 'true' ]]; then
+    task_command='runt'
+  else
+    task_command="task -t $repo_root"
+  fi
+
+  selected="$(eval "$task_command -a --silent" | fzf | cut -d' ' -f1)"
+  [[ -z "$selected" ]] && return 0
+
+  print -z "$task_command $selected"
+}
+
+
