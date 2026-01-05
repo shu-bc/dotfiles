@@ -18,6 +18,9 @@ return {
           },
         },
       },
+      golangci_lint_ls = {
+        enabled = false,
+      },
       buf_ls = {
         mason = false,
       },

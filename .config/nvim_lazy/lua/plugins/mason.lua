@@ -8,7 +8,7 @@ return {
       -- go
       "gopls",
       "goimports",
-      "golangci-lint-langserver",
+      -- "golangci-lint-langserver",
 
       -- python
       "python-lsp-server",
