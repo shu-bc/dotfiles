@@ -21,6 +21,9 @@ return {
       buf_ls = {
         mason = false,
       },
+      copilot = {
+        enabled = true,
+      },
     },
     -- setup = {
     --   gopls = function(_, opts)
