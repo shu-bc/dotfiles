@@ -4,18 +4,23 @@ return {
     -- add any options here
     cli = {
       mux = {
-        backend = "zellij",
+        backend = "tmux",
         enabled = true,
+      },
+      win = {
+        split = {
+          width = 0.4,
+        },
       },
     },
   },
   keys = {
     {
-      "<tab>",
+      "<c-g>",
       function()
         -- if there is a next edit, jump to it, otherwise apply it if any
         if not require("sidekick").nes_jump_or_apply() then
-          return "<Tab>" -- fallback to normal tab
+          return
         end
       end,
       expr = true,
