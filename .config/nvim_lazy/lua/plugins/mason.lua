@@ -10,9 +10,6 @@ return {
       "goimports",
       -- "golangci-lint-langserver",
 
-      -- python
-      "python-lsp-server",
-
       -- terraform
       "terraform-ls",
 
