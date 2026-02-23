@@ -46,5 +46,3 @@ function selt() {
 
   print -z "$task_command $selected"
 }
-
-
