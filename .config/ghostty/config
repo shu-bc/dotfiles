@@ -1,0 +1,15 @@
+quick-terminal-position = "top"
+quick-terminal-screen = "main"
+quick-terminal-animation-duration = 0.3
+keybind = "global:cmd+j=toggle_quick_terminal"
+#theme = Solarized Osaka Night
+theme = Iceberg Dark
+font-family = "Osaka−等幅"
+font-size = 16 
+window-save-state = always
+macos-option-as-alt = true
+
+clipboard-paste-protection = false
+clipboard-paste-bracketed-safe = false
+
+background-opacity = 0.80
