@@ -15,12 +15,11 @@ if [ -f '/Users/shuyou//google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/s
 
 alias lg='lazygit'
 alias vim='nvim'
-alias n='nvim'
 alias c='claude'
 alias kw='cd ~/workspace/kw/knowledgework/'
 export EDITOR='nvim'
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
