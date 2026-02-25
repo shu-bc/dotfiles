@@ -12,4 +12,5 @@ macos-option-as-alt = true
 clipboard-paste-protection = false
 clipboard-paste-bracketed-safe = false
 
-background-opacity = 0.80
+background-opacity = 0.90
+keybind = shift+enter=text:\n
